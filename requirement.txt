@@ -1,0 +1,53 @@
+Game: The Longitude Challenge
+
+Concept
+
+Players are given a set of latitude and longitude coordinates and must place a marker on the world map at the correct location. The closer their guess is to the actual point, the more points they earn. It’s a simple yet challenging game that helps players improve their geography skills while having fun.
+
+Gameplay Breakdown
+
+1. Starting a Round
+	•	The game presents a pair of coordinates, e.g., 48.8566° N, 2.3522° E (which corresponds to Paris, France).
+	•	Players see a blank or simplified world map (without city names) to make the challenge harder.
+	•	They have a limited time (e.g., 30 seconds) to place a marker on the map.
+
+2. Placing the Marker
+	•	Players click or tap on the world map to drop their marker where they think the coordinates are located.
+	•	They can zoom in and out to refine their guess.
+	•	Some modes may allow a “hint” button that provides extra clues (e.g., continent, country, or nearby landmarks).
+
+3. Scoring System
+	•	Once the marker is placed, the game compares the guessed location with the actual coordinates and calculates a score:
+	•	Exact Match (Perfect Score - 100 points): If the marker is within 5 km of the actual location.
+	•	Near Match (80-90 points): If it’s within 50 km.
+	•	Decent Guess (50-70 points): Within 200 km.
+	•	Missed by a lot (10-40 points): More than 500 km away.
+	•	Way Off (0 points): If the guess is completely wrong (e.g., placing a marker in North America when the location is in Europe).
+
+4. Game Modes
+	•	Classic Mode: Players get a fixed number of coordinates (e.g., 10 rounds) and aim for the highest total score.
+	•	Time Attack Mode: Players must guess as many locations as possible within a time limit (e.g., 2 minutes).
+	•	Hardcore Mode: No hints, a harder map (e.g., only continents shown), and a stricter scoring system.
+	•	Multiplayer Mode: Players compete head-to-head in real time, with a shared leaderboard.
+
+Why It’s Fun & Engaging
+
+✅ Educational – Helps players improve their knowledge of world geography and coordinate systems.
+✅ Competitive – High-score leaderboards and multiplayer duels make it exciting.
+✅ Scalable Difficulty – Beginners can start with easy mode (major cities only), while experts can challenge themselves with remote locations.
+✅ Replay Value – Randomized coordinates ensure no two games are the same.
+
+Extra Features to Enhance the Game
+	•	Power-ups: Players can use a limited number of lifelines like “Show Nearby Country” or “Zoom In 2x”.
+	•	Daily Challenges: A special set of coordinates each day with global leaderboards.
+	•	Custom Challenges: Users can create and share their own coordinate challenges with friends.
+	•	Historical Mode: Instead of just locations, players guess historical sites (e.g., where the Titanic sank).
+
+Tech Stack:
+
+- Next.js
+- Tailwind CSS
+- Shadcn UI
+- Lucide Icons
+- Supabase
+- React Leaflet
