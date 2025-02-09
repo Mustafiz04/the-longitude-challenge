@@ -1,4 +1,8 @@
 "use client";
+// IMPORTANT: the order matters!
+import "leaflet/dist/leaflet.css";
+import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css";
+import "leaflet-defaulticon-compatibility";
 
 import { useEffect, useState, useCallback } from "react";
 import {
@@ -55,17 +59,23 @@ interface GameMapProps {
   timeLimit?: number;
   isClickable?: boolean;
   resetKey?: number;
+  onGuess: (lat: number, lng: number) => void;
 }
 
-export default function GameMap({
+const GameMap: React.FC<GameMapProps> = ({
   onMarkerPlace,
   onConfirmLocation,
   targetLocation,
   showTarget = false,
   isClickable = true,
   resetKey = 0,
-}: GameMapProps) {
+  onGuess,
+}) => {
   const [userMarker, setUserMarker] = useState<[number, number] | null>(null);
+  const [isBrowser] = useState(true);
+
+  const defaultCenter: [number, number] = [51.505, -0.09];
+  const mapCenter = targetLocation || defaultCenter;
 
   const handleMapClick = useCallback(
     (lat: number, lng: number) => {
@@ -75,43 +85,60 @@ export default function GameMap({
     [onMarkerPlace]
   );
 
+  const handleConfirmLocation = useCallback(() => {
+    if (userMarker) {
+      onGuess(userMarker[0], userMarker[1]);
+      onConfirmLocation?.();
+    }
+  }, [userMarker, onGuess, onConfirmLocation]);
+
   useEffect(() => {
     setUserMarker(null);
   }, [resetKey]);
 
+  useEffect(() => {
+    // if (typeof window !== "undefined") {
+    //   setIsBrowser(true);
+    // }
+  }, []);
+
   return (
     <div className="relative h-[600px] w-full rounded-lg overflow-hidden">
-      <MapContainer center={[20, 0]} zoom={2} className="h-full w-full">
-        <MapClickHandler
-          onMapClick={handleMapClick}
-          isClickable={isClickable}
-        />
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {userMarker && <Marker position={userMarker} icon={userIcon} />}
-        {showTarget && targetLocation && (
-          <>
-            <Marker position={targetLocation} icon={targetIcon} />
-            {userMarker && (
-              <Polyline
-                positions={[userMarker, targetLocation]}
-                color="red"
-                dashArray="5, 10"
-              />
-            )}
-          </>
-        )}
-      </MapContainer>
+      {isBrowser && (
+        <MapContainer center={mapCenter} zoom={13} className="h-full w-full">
+          <MapClickHandler
+            onMapClick={handleMapClick}
+            isClickable={isClickable}
+          />
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {userMarker && <Marker position={userMarker} icon={userIcon} />}
+          {showTarget && targetLocation && (
+            <>
+              <Marker position={targetLocation} icon={targetIcon} />
+              {userMarker && (
+                <Polyline
+                  positions={[userMarker, targetLocation]}
+                  color="red"
+                  dashArray="5, 10"
+                />
+              )}
+            </>
+          )}
+        </MapContainer>
+      )}
       {userMarker && !showTarget && (
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-[1000] flex gap-2">
           <Button variant="outline" onClick={() => setUserMarker(null)}>
             Try Again
           </Button>
-          <Button onClick={onConfirmLocation}>Confirm Location</Button>
+          <Button onClick={handleConfirmLocation}>Confirm Location</Button>
         </div>
       )}
     </div>
   );
-}
+};
+
+export default GameMap;

@@ -1,7 +1,7 @@
 "use client";
 
-import GameMap from "@/components/map/GameMap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import {
   getRandomLocation,
   formatCoordinates,
@@ -15,7 +15,13 @@ import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
 import { MapPin, HelpCircle } from "lucide-react";
 import { Hint } from "@/utils/coordinates";
-import Link from "next/link";
+// import GameMap from "@/components/map/GameMap";
+import GameHeader from "@/components/layout/GameHeader";
+
+const GameMap = dynamic(() => import("@/components/map/GameMap"), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
 
 export default function PlayPage() {
   const [score, setScore] = useState(0);
@@ -29,6 +35,12 @@ export default function PlayPage() {
   const [roundScore, setRoundScore] = useState(0);
   const [hints, setHints] = useState<Hint[]>([]);
   const [hintsRemaining, setHintsRemaining] = useState(3);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Any code that requires `window` can go here
+    }
+  }, []);
 
   const handleMarkerPlace = (lat: number, lng: number) => {
     setTempMarker([lat, lng]);
@@ -84,98 +96,91 @@ export default function PlayPage() {
   };
 
   return (
-    <main className="container mx-auto p-4 space-y-4 max-w-6xl">
-      <div className="flex">
-        <Link href="/" passHref>
-          <Button variant="outline" className="mb-4">
-            Back to Home
-          </Button>
-        </Link>
-      </div>
-
-      <div className="flex flex-col md:flex-row items-center justify-between">
-        <h1 className="text-3xl font-bold">The Longitude Challenge</h1>
-        <div className="flex items-center gap-4 mt-2 md:mt-0">
+    <main className="space-y-4">
+      <GameHeader title="The Longitude Challenge" />
+      
+      <div className="container mx-auto p-4 space-y-4 max-w-6xl">
+        <div className="flex justify-end">
           <Badge variant="secondary" className="text-lg px-4 py-1">
             Total Score: {score}
           </Badge>
         </div>
-      </div>
-
-      <Card>
-        <CardHeader className="pb-2">
-          <div className="flex items-center justify-between">
-            <CardTitle className="flex items-center gap-2">
-              <MapPin className="h-5 w-5" />
-              Target Location
-            </CardTitle>
-            <div className="flex items-center gap-2">
-              {!roundComplete && (
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={handleHint}
-                  disabled={hintsRemaining <= 0}
-                  className="flex items-center gap-2"
-                >
-                  <HelpCircle className="h-4 w-4" />
-                  Hints: {hintsRemaining}
-                </Button>
-              )}
-              {roundComplete && (
-                <Badge variant={roundScore > 50 ? "success" : "destructive"}>
-                  {roundScore} points
-                </Badge>
-              )}
-            </div>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <p className="text-lg font-mono">
-            {formatCoordinates(...currentLocation.coordinates)}
-          </p>
-          {hints.length > 0 && (
-            <div className="mt-2 space-y-1">
-              {hints.map((hint, index) => (
-                <p key={index} className="text-sm text-muted-foreground">
-                  Hint {index + 1}: {hint.text}
-                </p>
-              ))}
-            </div>
-          )}
-          {distance && (
-            <>
-              <Separator className="my-2" />
-              <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">
-                  Distance from target: {distance.toFixed(2)} km
-                </p>
-                <Progress
-                  value={Math.max(0, 100 - distance / 10)}
-                  className="h-2"
-                />
+        
+        <Card>
+          <CardHeader className="pb-2">
+            <div className="flex items-center justify-between">
+              <CardTitle className="flex items-center gap-2">
+                <MapPin className="h-5 w-5" />
+                Target Location
+              </CardTitle>
+              <div className="flex items-center gap-2">
+                {!roundComplete && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleHint}
+                    disabled={hintsRemaining <= 0}
+                    className="flex items-center gap-2"
+                  >
+                    <HelpCircle className="h-4 w-4" />
+                    Hints: {hintsRemaining}
+                  </Button>
+                )}
+                {roundComplete && (
+                  <Badge variant={roundScore > 50 ? "success" : "destructive"}>
+                    {roundScore} points
+                  </Badge>
+                )}
               </div>
-            </>
-          )}
-        </CardContent>
-      </Card>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <p className="text-lg font-mono">
+              {formatCoordinates(...currentLocation.coordinates)}
+            </p>
+            {hints.length > 0 && (
+              <div className="mt-2 space-y-1">
+                {hints.map((hint, index) => (
+                  <p key={index} className="text-sm text-muted-foreground">
+                    Hint {index + 1}: {hint.text}
+                  </p>
+                ))}
+              </div>
+            )}
+            {distance && (
+              <>
+                <Separator className="my-2" />
+                <div className="space-y-2">
+                  <p className="text-sm text-muted-foreground">
+                    Distance from target: {distance.toFixed(2)} km
+                  </p>
+                  <Progress
+                    value={Math.max(0, 100 - distance / 10)}
+                    className="h-2"
+                  />
+                </div>
+              </>
+            )}
+          </CardContent>
+        </Card>
 
-      <GameMap
-        onMarkerPlace={handleMarkerPlace}
-        onConfirmLocation={handleConfirmLocation}
-        targetLocation={currentLocation.coordinates}
-        showTarget={showTarget}
-        isClickable={isMapClickable}
-        resetKey={resetKey}
-      />
+        <GameMap
+          onMarkerPlace={handleMarkerPlace}
+          targetLocation={currentLocation.coordinates}
+          showTarget={showTarget}
+          isClickable={isMapClickable}
+          resetKey={resetKey}
+          onGuess={handleConfirmLocation}
+        />
 
-      {roundComplete && (
-        <div className="flex justify-center">
-          <Button onClick={startNewRound} size="lg" className="px-8">
-            Next Round
-          </Button>
-        </div>
-      )}
+        {roundComplete && (
+          <div className="flex justify-center">
+            <Button onClick={startNewRound} size="lg" className="px-8">
+              Next Round
+            </Button>
+          </div>
+        )}
+      </div>
     </main>
   );
 }

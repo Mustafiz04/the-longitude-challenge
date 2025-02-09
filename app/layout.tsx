@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'The Longitude Challenge',
   description: 'Test your geography knowledge with coordinates!',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({

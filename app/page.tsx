@@ -72,6 +72,32 @@ export default function HomePage() {
             </CardContent>
           </Card>
         </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+          <Link
+            href="/play"
+            className="p-6 border rounded-lg hover:border-blue-500 transition-colors"
+          >
+            <h2 className="text-xl font-bold">Classic Mode →</h2>
+            <p>Test your geography skills with 10 rounds of coordinate guessing.</p>
+          </Link>
+          
+          <Link
+            href="/time-attack"
+            className="p-6 border rounded-lg hover:border-blue-500 transition-colors"
+          >
+            <h2 className="text-xl font-bold">Time Attack →</h2>
+            <p>Race against time! Guess as many locations as possible in 2 minutes.</p>
+          </Link>
+
+          <Link
+            href="/culture-quest"
+            className="p-6 border rounded-lg hover:border-blue-500 transition-colors"
+          >
+            <h2 className="text-xl font-bold">Culture Quest →</h2>
+            <p>Test your knowledge of global culture and history.</p>
+          </Link>
+        </div>
       </main>
 
       {/* Footer */}

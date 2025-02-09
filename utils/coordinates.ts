@@ -152,3 +152,9 @@ export function getHint(location: Location, usedHints: Hint[]): Hint | null {
   if (unusedHints.length === 0) return null;
   return unusedHints[Math.floor(Math.random() * unusedHints.length)];
 }
+
+export const getRandomCoordinates = (): [number, number] => {
+  const lat = Math.random() * 180 - 90; // Random latitude between -90 and 90
+  const lng = Math.random() * 360 - 180; // Random longitude between -180 and 180
+  return [lat, lng]; // Return as a tuple
+};
