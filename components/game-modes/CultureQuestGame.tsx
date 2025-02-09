@@ -8,11 +8,25 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Trophy, AlertCircle, Heart, ArrowRight } from "lucide-react";
+import { getCountryHintSequences } from '@/utils/countryHints';
+import dynamic from "next/dynamic";
+// import WorldMap from "../map/WorldMap";
+
+const WorldMap = dynamic(() => import("../map/WorldMap"), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
+
 
 interface Hint {
   text: string;
   points: number;
 }
+
+// interface HintSequence {
+//   hints: Hint[];
+//   difficulty: 'easy' | 'medium' | 'hard';
+// }
 
 export default function CultureQuestGame() {
   const [country, setCountry] = useState<Country | null>(null);
@@ -26,6 +40,7 @@ export default function CultureQuestGame() {
     text: string;
     type: "success" | "error" | "info";
   } | null>(null);
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
 
   const startNewGame = useCallback(() => {
     const newCountry = getRandomCountry();
@@ -37,48 +52,36 @@ export default function CultureQuestGame() {
     setLives(3);
     setGuess("");
     setMessage(null);
+    setSelectedCountry(null);
   }, []);
 
   useEffect(() => {
     startNewGame();
   }, [startNewGame]);
 
-  const generateHints = (country: Country) => {
-    return [
-      {
-        text: `This country's flag has ${country.flagColors.length} colors`,
-        points: 1,
-      },
-      {
-        text: `The flag colors include: ${country.flagColors.join(", ")}`,
-        points: 3,
-      },
-      { text: `The capital city is ${country.capital}`, points: 5 },
-      {
-        text: `Famous cuisine includes: ${country.cuisine.join(", ")}`,
-        points: 7,
-      },
-      { text: `Popular sports: ${country.sports.join(", ")}`, points: 10 },
-      { text: `Famous landmarks: ${country.landmarks.join(", ")}`, points: 15 },
-      { text: `Historical events: ${country.historicalEvents[0]}`, points: 20 },
-      {
-        text: `Famous personalities: ${country.famousPersonalities.join(", ")}`,
-        points: 20,
-      },
-      {
-        text: `Cultural traditions: ${country.traditions.join(", ")}`,
-        points: 20,
-      },
-      { text: `This country is located in ${country.continent}`, points: 20 },
-    ];
+  const generateHints = (country: Country): Hint[] => {
+    const hintSequences = getCountryHintSequences(country);
+    const randomSequence = hintSequences[Math.floor(Math.random() * hintSequences.length)];
+    return randomSequence.hints;
   };
 
-  const handleGuess = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleGuessSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (guess.trim()) {
+      checkAnswer(guess);
+    }
+  };
 
-    if (!guess.trim()) return;
+  const handleCountrySelect = (countryName: string) => {
+    setGuess(countryName);
+    checkAnswer(countryName);
+  };
 
-    const isCorrect = guess.toLowerCase() === country?.name.toLowerCase();
+  const checkAnswer = (countryName: string) => {
+    setSelectedCountry(countryName);
+    
+    const isCorrect = countryName.toLowerCase() === country?.name.toLowerCase();
+    const pointsToDeduct = hints[currentHintIndex].points;
 
     if (isCorrect) {
       setGameOver(true);
@@ -87,11 +90,11 @@ export default function CultureQuestGame() {
         type: "success",
       });
     } else {
-      const pointsToDeduct = hints[currentHintIndex].points;
+      const newLives = lives - 1;
       setScore((prev) => Math.max(0, prev - pointsToDeduct));
-      setLives((prev) => prev - 1);
+      setLives(newLives);
 
-      if (lives <= 1) {
+      if (newLives <= 0) {
         setGameOver(true);
         setMessage({
           text: `Game Over! The country was ${country?.name}`,
@@ -99,8 +102,8 @@ export default function CultureQuestGame() {
         });
       } else {
         setMessage({
-          text: `Wrong guess! ${lives - 1} ${
-            lives - 1 === 1 ? "try" : "tries"
+          text: `Wrong guess! ${newLives} ${
+            newLives === 1 ? "try" : "tries"
           } remaining`,
           type: "error",
         });
@@ -132,6 +135,13 @@ export default function CultureQuestGame() {
         </div>
 
         <div className="space-y-4">
+          <WorldMap
+            selectedCountry={selectedCountry}
+            correctCountry={gameOver ? country?.name || null : null}
+            onSelectCountry={handleCountrySelect}
+            isGameOver={gameOver}
+          />
+
           <div className="bg-gray-50 rounded-lg p-4">
             <h3 className="text-xl font-bold mb-4">Current Hints:</h3>
             <div className="space-y-3">
@@ -169,7 +179,7 @@ export default function CultureQuestGame() {
           )}
 
           {!gameOver && (
-            <form onSubmit={handleGuess} className="space-y-4">
+            <form onSubmit={handleGuessSubmit} className="space-y-4">
               <div className="flex gap-2">
                 <Input
                   type="text"
