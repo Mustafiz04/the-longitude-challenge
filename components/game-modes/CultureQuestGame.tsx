@@ -81,7 +81,6 @@ export default function CultureQuestGame() {
     setSelectedCountry(countryName);
     
     const isCorrect = countryName.toLowerCase() === country?.name.toLowerCase();
-    const pointsToDeduct = hints[currentHintIndex].points;
 
     if (isCorrect) {
       setGameOver(true);
@@ -91,7 +90,6 @@ export default function CultureQuestGame() {
       });
     } else {
       const newLives = lives - 1;
-      setScore((prev) => Math.max(0, prev - pointsToDeduct));
       setLives(newLives);
 
       if (newLives <= 0) {
@@ -116,6 +114,8 @@ export default function CultureQuestGame() {
     if (currentHintIndex < hints.length - 1) {
       setCurrentHintIndex((prev) => prev + 1);
     }
+    const pointsToDeduct = hints[currentHintIndex].points;
+    setScore((prev) => Math.max(0, prev - pointsToDeduct));
   };
 
   return (

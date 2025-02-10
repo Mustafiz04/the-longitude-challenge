@@ -105,7 +105,7 @@ const GameMap: React.FC<GameMapProps> = ({
   return (
     <div className="relative h-[600px] w-full rounded-lg overflow-hidden">
       {isBrowser && (
-        <MapContainer center={mapCenter} zoom={13} className="h-full w-full">
+        <MapContainer center={mapCenter} zoom={1} className="h-full w-full">
           <MapClickHandler
             onMapClick={handleMapClick}
             isClickable={isClickable}
