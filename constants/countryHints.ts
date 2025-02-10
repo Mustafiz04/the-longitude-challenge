@@ -2252,6 +2252,1188 @@ export const countryHints: CountryHints = {
       ],
     },
   ],
+  KH: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in Southeast Asia", points: 1 },
+        { text: "Its capital city is Phnom Penh", points: 2 },
+        { text: "The official language is Khmer", points: 3 },
+        {
+          text: "Angkor Wat, the largest religious monument in the world, is here",
+          points: 5,
+        },
+        { text: "The country was once ruled by the Khmer Empire", points: 7 },
+        {
+          text: "It shares borders with Thailand, Laos, and Vietnam",
+          points: 10,
+        },
+        { text: "The Mekong River flows through this country", points: 12 },
+        { text: "The national currency is the Riel", points: 15 },
+        {
+          text: "The country was heavily affected by the Khmer Rouge regime",
+          points: 18,
+        },
+        {
+          text: "Tonlé Sap is the largest freshwater lake in this country",
+          points: 20,
+        },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        { text: "It gained independence from France in 1953", points: 1 },
+        {
+          text: "The country is known for traditional Apsara dance",
+          points: 2,
+        },
+        { text: "Rice is a staple food in this country", points: 4 },
+        { text: "The national flag features Angkor Wat", points: 6 },
+        { text: "The country has a famous temple called Ta Prohm", points: 8 },
+        { text: "It has a coastline along the Gulf of Thailand", points: 10 },
+        { text: "Bokor Hill Station is a famous abandoned site", points: 12 },
+        { text: "The Killing Fields are a tragic historical site", points: 15 },
+        {
+          text: "Cambodian riel is rarely used, as the US dollar is widely accepted",
+          points: 18,
+        },
+        { text: "The Silver Pagoda is part of the Royal Palace", points: 20 },
+      ],
+    },
+    {
+      difficulty: "hard",
+      hints: [
+        { text: "The Khmer language has its own unique script", points: 1 },
+        {
+          text: "It has one of the longest-running monarchies in Asia",
+          points: 2,
+        },
+        {
+          text: "The Cardamom Mountains are a major natural feature",
+          points: 4,
+        },
+        {
+          text: "The country has one of the youngest populations in Southeast Asia",
+          points: 6,
+        },
+        { text: "Sihanoukville is a major coastal city", points: 8 },
+        {
+          text: "The Bokor National Park is known for its wildlife",
+          points: 10,
+        },
+        { text: "The Khmer Rouge regime lasted from 1975 to 1979", points: 12 },
+        {
+          text: "It has one of the fastest-growing economies in the region",
+          points: 15,
+        },
+        { text: "Samlor korkor is a famous Cambodian soup", points: 18 },
+        {
+          text: "Norodom Sihanouk was a key figure in Cambodia’s modern history",
+          points: 20,
+        },
+      ],
+    },
+  ],
+  CM: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in Central Africa", points: 1 },
+        { text: "Its capital city is Yaoundé", points: 2 },
+        { text: "The largest city is Douala", points: 3 },
+        {
+          text: "It is sometimes called 'Africa in Miniature' due to its diversity",
+          points: 5,
+        },
+        {
+          text: "Mount Cameroon is the highest mountain in West and Central Africa",
+          points: 7,
+        },
+        {
+          text: "It has both French and English as official languages",
+          points: 10,
+        },
+        {
+          text: "The country has a coastline along the Atlantic Ocean",
+          points: 12,
+        },
+        {
+          text: "It has diverse wildlife, including gorillas and elephants",
+          points: 15,
+        },
+        {
+          text: "It has won the African Cup of Nations multiple times",
+          points: 18,
+        },
+        {
+          text: "The Waza National Park is a major tourist attraction",
+          points: 20,
+        },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        {
+          text: "It gained independence from France and the UK in 1960",
+          points: 1,
+        },
+        {
+          text: "The country's currency is the Central African CFA franc",
+          points: 2,
+        },
+        { text: "It has multiple UNESCO World Heritage Sites", points: 4 },
+        { text: "The Sanaga River is the longest in the country", points: 6 },
+        { text: "The country has an active volcano", points: 8 },
+        {
+          text: "Its national football team is known as the Indomitable Lions",
+          points: 10,
+        },
+        {
+          text: "Foumban is a cultural center for the Bamoun people",
+          points: 12,
+        },
+        { text: "Ndolé is a traditional dish", points: 15 },
+        {
+          text: "It has one of the richest music scenes in Africa",
+          points: 18,
+        },
+        {
+          text: "The country has many ethnic groups, including the Fulani and Bamileke",
+          points: 20,
+        },
+      ],
+    },
+  ],
+  CA: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in North America", points: 1 },
+        { text: "Its capital city is Ottawa", points: 2 },
+        {
+          text: "It is the second-largest country in the world by land area",
+          points: 3,
+        },
+        { text: "Its national animal is the beaver", points: 5 },
+        { text: "The national sport is ice hockey", points: 7 },
+        {
+          text: "It has two official languages: English and French",
+          points: 10,
+        },
+        {
+          text: "The CN Tower is one of its most famous landmarks",
+          points: 12,
+        },
+        {
+          text: "It shares the longest international border with the United States",
+          points: 15,
+        },
+        { text: "Niagara Falls is a popular tourist destination", points: 18 },
+        { text: "Its flag features a red maple leaf", points: 20 },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        { text: "It has ten provinces and three territories", points: 1 },
+        { text: "It was part of the British Empire until 1867", points: 2 },
+        { text: "The Rocky Mountains run through this country", points: 4 },
+        { text: "The northern part is covered by the Arctic", points: 6 },
+        { text: "Poutine is a popular Canadian dish", points: 8 },
+        { text: "It has the longest coastline in the world", points: 10 },
+        {
+          text: "The country is known for its maple syrup production",
+          points: 12,
+        },
+        { text: "Toronto is the largest city", points: 15 },
+        {
+          text: "It is home to the world's longest street, Yonge Street",
+          points: 18,
+        },
+        {
+          text: "The national police force is the Royal Canadian Mounted Police (RCMP)",
+          points: 20,
+        },
+      ],
+    },
+  ],
+  CF: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is located in Central Africa", points: 1 },
+        { text: "Its capital city is Bangui", points: 2 },
+        { text: "The official language is French", points: 3 },
+        { text: "It is a landlocked country", points: 5 },
+        {
+          text: "It borders Chad, Sudan, South Sudan, and four other countries",
+          points: 7,
+        },
+        {
+          text: "The national currency is the Central African CFA franc",
+          points: 10,
+        },
+        { text: "It is known for the Dzanga-Sangha National Park", points: 12 },
+        {
+          text: "It is rich in natural resources such as diamonds and gold",
+          points: 15,
+        },
+        { text: "The Ubangi River forms part of its border", points: 18 },
+        { text: "It was a French colony until 1960", points: 20 },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        {
+          text: "It has one of the lowest GDPs per capita in the world",
+          points: 1,
+        },
+        { text: "The country is home to the pygmy people", points: 2 },
+        { text: "It has six major national parks", points: 4 },
+        {
+          text: "It has suffered from multiple coups and political instability",
+          points: 6,
+        },
+        { text: "Bamingui-Bangoran National Park is located here", points: 8 },
+        {
+          text: "The country’s rainforest covers a significant portion of its land",
+          points: 10,
+        },
+        { text: "Sango is another official language", points: 12 },
+        {
+          text: "Its wildlife includes forest elephants and lowland gorillas",
+          points: 15,
+        },
+        { text: "It was formerly known as Ubangi-Shari", points: 18 },
+        {
+          text: "The country has one of the lowest human development indexes",
+          points: 20,
+        },
+      ],
+    },
+  ],
+  TD: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in Central Africa", points: 1 },
+        { text: "Its capital city is N'Djamena", points: 2 },
+        { text: "It is named after a large lake", points: 3 },
+        { text: "The official languages are French and Arabic", points: 5 },
+        { text: "It is landlocked", points: 7 },
+        {
+          text: "It shares borders with Libya, Sudan, and four other countries",
+          points: 10,
+        },
+        { text: "It is one of the hottest countries in the world", points: 12 },
+        { text: "The Sahara Desert covers much of its territory", points: 15 },
+        {
+          text: "The national currency is the Central African CFA franc",
+          points: 18,
+        },
+        { text: "It gained independence from France in 1960", points: 20 },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        { text: "The Tibesti Mountains are located in the north", points: 1 },
+        { text: "It has over 200 ethnic groups", points: 2 },
+        { text: "The country is rich in oil resources", points: 4 },
+        { text: "It has been affected by civil wars and conflicts", points: 6 },
+        {
+          text: "The Ennedi Plateau is a UNESCO World Heritage site",
+          points: 8,
+        },
+        { text: "Lake Chad is shrinking due to climate change", points: 10 },
+        { text: "Chadian Arabic is a widely spoken dialect", points: 12 },
+        { text: "Saharan dust storms are common in the country", points: 15 },
+        { text: "The country has a large nomadic population", points: 18 },
+        {
+          text: "The Zakouma National Park is known for wildlife conservation",
+          points: 20,
+        },
+      ],
+    },
+  ],
+  CL: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in South America", points: 1 },
+        { text: "Its capital city is Santiago", points: 2 },
+        { text: "The official language is Spanish", points: 3 },
+        {
+          text: "It is one of the longest north-to-south countries in the world",
+          points: 5,
+        },
+        { text: "It borders Argentina, Bolivia, and Peru", points: 7 },
+        {
+          text: "The Andes Mountains run along its entire eastern border",
+          points: 10,
+        },
+        { text: "It is famous for its wine production", points: 12 },
+        { text: "It has a large desert called the Atacama Desert", points: 15 },
+        {
+          text: "Easter Island, known for its Moai statues, belongs to this country",
+          points: 18,
+        },
+        { text: "It has a long coastline along the Pacific Ocean", points: 20 },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        { text: "It was once ruled by dictator Augusto Pinochet", points: 1 },
+        { text: "The country experiences many earthquakes", points: 2 },
+        { text: "It is a major producer of copper", points: 4 },
+        { text: "The national currency is the Chilean peso", points: 6 },
+        {
+          text: "The country has a strong economy in Latin America",
+          points: 8,
+        },
+        { text: "The Mapuche are the largest indigenous group", points: 10 },
+        { text: "It has a strong presence in Antarctic research", points: 12 },
+        {
+          text: "The Los Lagos region is famous for its lakes and volcanoes",
+          points: 15,
+        },
+        {
+          text: "The country has one of the driest places on Earth",
+          points: 18,
+        },
+        { text: "The Humboldt Current affects its climate", points: 20 },
+      ],
+    },
+  ],
+  CN: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in East Asia", points: 1 },
+        { text: "It has the largest population in the world", points: 2 },
+        { text: "The capital city is Beijing", points: 3 },
+        { text: "Its official language is Mandarin", points: 5 },
+        { text: "It is home to the Great Wall", points: 7 },
+        { text: "The national currency is the yuan (CNY)", points: 10 },
+        { text: "Shanghai is its largest city", points: 12 },
+        { text: "It hosted the 2008 and 2022 Olympics", points: 15 },
+        { text: "It has the world’s second-largest economy", points: 18 },
+        { text: "The Forbidden City is a famous landmark here", points: 20 },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        { text: "It has 56 recognized ethnic groups", points: 1 },
+        { text: "The Yangtze is its longest river", points: 2 },
+        { text: "It shares borders with 14 countries", points: 4 },
+        { text: "The Terracotta Army was discovered here", points: 6 },
+        { text: "Peking duck is a famous dish", points: 8 },
+        { text: "The Silk Road historically passed through here", points: 10 },
+        { text: "It has the largest high-speed rail network", points: 12 },
+        { text: "The panda is a national symbol", points: 15 },
+        {
+          text: "It has multiple time zones but follows one official time",
+          points: 18,
+        },
+        {
+          text: "The Hong Kong-Zhuhai-Macau Bridge is the world’s longest sea bridge",
+          points: 20,
+        },
+      ],
+    },
+  ],
+  CO: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in South America", points: 1 },
+        { text: "Its capital city is Bogotá", points: 2 },
+        { text: "The official language is Spanish", points: 3 },
+        { text: "It is famous for its coffee", points: 5 },
+        { text: "It is the world’s largest exporter of emeralds", points: 7 },
+        {
+          text: "It has coastlines on both the Pacific and Atlantic Oceans",
+          points: 10,
+        },
+        { text: "Shakira and Maluma are from this country", points: 12 },
+        {
+          text: "It was the home of the ancient Muisca civilization",
+          points: 15,
+        },
+        {
+          text: "It borders five countries, including Venezuela and Brazil",
+          points: 18,
+        },
+        { text: "The famous 'Lost City' is located here", points: 20 },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        {
+          text: "It is the only South American country with islands in the Caribbean",
+          points: 1,
+        },
+        {
+          text: "Gabriel García Márquez, a famous writer, was born here",
+          points: 2,
+        },
+        { text: "The Andean condor is its national bird", points: 4 },
+        { text: "The Magdalena River is its longest river", points: 6 },
+        { text: "It has a famous Carnival in Barranquilla", points: 8 },
+        {
+          text: "Its national soccer team won the Copa América in 2001",
+          points: 10,
+        },
+        { text: "It is home to the Amazon Rainforest", points: 12 },
+        { text: "The Salt Cathedral of Zipaquirá is located here", points: 15 },
+        { text: "It is known for Arepas and Ajiaco", points: 18 },
+        {
+          text: "The Caño Cristales River is known as the 'River of Five Colors'",
+          points: 20,
+        },
+      ],
+    },
+  ],
+  KM: [
+    {
+      difficulty: "easy",
+      hints: [
+        {
+          text: "This country is an island nation in the Indian Ocean",
+          points: 1,
+        },
+        { text: "Its capital city is Moroni", points: 2 },
+        { text: "It consists of four major islands", points: 3 },
+        { text: "It is located between Madagascar and Mozambique", points: 5 },
+        { text: "The official languages include Arabic and French", points: 7 },
+        { text: "It is one of the smallest African nations", points: 10 },
+        {
+          text: "It has active volcanoes, including Mount Karthala",
+          points: 12,
+        },
+        { text: "It gained independence from France in 1975", points: 15 },
+        {
+          text: "Its economy relies on vanilla and ylang-ylang production",
+          points: 18,
+        },
+        {
+          text: "It is one of the least visited countries in the world",
+          points: 20,
+        },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        { text: "It is part of the African Union", points: 1 },
+        { text: "It has been affected by political instability", points: 2 },
+        { text: "The Comorian franc is its currency", points: 4 },
+        {
+          text: "It has one of the youngest populations in the world",
+          points: 6,
+        },
+        {
+          text: "It has strong cultural ties to Swahili and Arab influences",
+          points: 8,
+        },
+        { text: "It is sometimes called the 'Perfume Islands'", points: 10 },
+        {
+          text: "The island of Mayotte is still controlled by France",
+          points: 12,
+        },
+        { text: "It has no railways", points: 15 },
+        {
+          text: "It has a legal system based on Islamic law and French civil law",
+          points: 18,
+        },
+        { text: "It has over 20 species of endangered birds", points: 20 },
+      ],
+    },
+  ],
+  CG: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in Central Africa", points: 1 },
+        { text: "Its capital city is Brazzaville", points: 2 },
+        {
+          text: "It shares a name with a larger neighboring country",
+          points: 3,
+        },
+        { text: "The official language is French", points: 5 },
+        { text: "It is located on the Congo River", points: 7 },
+        { text: "It gained independence from France in 1960", points: 10 },
+        {
+          text: "It is home to the second-largest rainforest in the world",
+          points: 12,
+        },
+        { text: "The economy relies heavily on oil exports", points: 15 },
+        { text: "The currency is the Central African CFA franc", points: 18 },
+        {
+          text: "Brazzaville is directly across the river from Kinshasa",
+          points: 20,
+        },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        { text: "It is sometimes referred to as Congo-Brazzaville", points: 1 },
+        {
+          text: "The country is known for its diverse wildlife, including gorillas",
+          points: 2,
+        },
+        { text: "It has a long Atlantic coastline", points: 4 },
+        { text: "The country’s largest river is the Congo River", points: 6 },
+        {
+          text: "The Pointe-Noire region is known for its oil reserves",
+          points: 8,
+        },
+        {
+          text: "It was formerly a part of French Equatorial Africa",
+          points: 10,
+        },
+        { text: "The Odzala-Kokoua National Park is located here", points: 12 },
+        {
+          text: "It has one of the largest hydroelectric dams in Africa",
+          points: 15,
+        },
+        { text: "The country has had periods of civil unrest", points: 18 },
+        {
+          text: "It has one of the least densely populated capitals in Africa",
+          points: 20,
+        },
+      ],
+    },
+  ],
+  CR: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in Central America", points: 1 },
+        { text: "Its capital city is San José", points: 2 },
+        { text: "It is known for its rich biodiversity", points: 3 },
+        { text: "The official language is Spanish", points: 5 },
+        { text: "It does not have a standing army", points: 7 },
+        { text: "It is famous for its coffee production", points: 10 },
+        {
+          text: "It has coastlines on both the Pacific Ocean and the Caribbean Sea",
+          points: 12,
+        },
+        { text: "It is known for eco-tourism", points: 15 },
+        { text: "The national currency is the colón", points: 18 },
+        { text: "Its motto is 'Pura Vida'", points: 20 },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        { text: "It has a strong focus on renewable energy", points: 1 },
+        { text: "The country has numerous active volcanoes", points: 2 },
+        { text: "It has a strong democracy and stable government", points: 4 },
+        {
+          text: "Tortuguero National Park is famous for sea turtles",
+          points: 6,
+        },
+        {
+          text: "It has the highest literacy rate in Central America",
+          points: 8,
+        },
+        {
+          text: "The Nicoya Peninsula is one of the world's 'Blue Zones'",
+          points: 10,
+        },
+        { text: "Monteverde is known for its cloud forests", points: 12 },
+        { text: "It is home to the famous Arenal Volcano", points: 15 },
+        { text: "The country has a significant sloth population", points: 18 },
+        {
+          text: "It has hosted UN peacekeeping efforts in Latin America",
+          points: 20,
+        },
+      ],
+    },
+  ],
+  HR: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in Europe", points: 1 },
+        { text: "Its capital city is Zagreb", points: 2 },
+        { text: "It is known for its stunning Adriatic coastline", points: 3 },
+        { text: "The official language is Croatian", points: 5 },
+        { text: "It was once part of Yugoslavia", points: 7 },
+        { text: "It is famous for Plitvice Lakes National Park", points: 10 },
+        { text: "It is known for the walled city of Dubrovnik", points: 12 },
+        {
+          text: "The national currency was the kuna before switching to the euro",
+          points: 15,
+        },
+        { text: "It has over 1,000 islands", points: 18 },
+        { text: "It gained independence in 1991", points: 20 },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        {
+          text: "It has one of the world’s smallest populations for a World Cup finalist",
+          points: 1,
+        },
+        {
+          text: "It has a high number of UNESCO World Heritage Sites",
+          points: 2,
+        },
+        { text: "The country has a rich Roman history", points: 4 },
+        {
+          text: "It has hosted many Game of Thrones filming locations",
+          points: 6,
+        },
+        {
+          text: "The Istrian Peninsula is a famous tourist destination",
+          points: 8,
+        },
+        { text: "It has a border with Slovenia and Hungary", points: 10 },
+        { text: "It is famous for its olive oil and truffles", points: 12 },
+        { text: "It has a Mediterranean and continental climate", points: 15 },
+        {
+          text: "The Dalmatian Coast is a major cruise destination",
+          points: 18,
+        },
+        {
+          text: "It has an island known as Hvar, a famous luxury destination",
+          points: 20,
+        },
+      ],
+    },
+  ],
+  CU: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in the Caribbean", points: 1 },
+        { text: "Its capital city is Havana", points: 2 },
+        { text: "It is the largest island in the Caribbean", points: 3 },
+        { text: "The official language is Spanish", points: 5 },
+        { text: "It is famous for cigars", points: 7 },
+        { text: "It has a communist government", points: 10 },
+        { text: "It was led by Fidel Castro for decades", points: 12 },
+        { text: "The Bay of Pigs invasion happened here", points: 15 },
+        { text: "It is known for vintage American cars", points: 18 },
+        {
+          text: "It has a major influence on salsa and Latin music",
+          points: 20,
+        },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        {
+          text: "It has a trade embargo imposed by the United States",
+          points: 1,
+        },
+        { text: "The Cuban Missile Crisis took place here", points: 2 },
+        { text: "The country has a dual-currency system", points: 4 },
+        { text: "It was a Spanish colony until 1898", points: 6 },
+        { text: "Guantanamo Bay is located here", points: 8 },
+        { text: "The Tropicana Club is a famous attraction", points: 10 },
+        {
+          text: "It has one of the highest literacy rates in the world",
+          points: 12,
+        },
+        { text: "It produces a world-famous rum", points: 15 },
+        { text: "The national sport is baseball", points: 18 },
+        { text: "Ernest Hemingway lived here for many years", points: 20 },
+      ],
+    },
+  ],
+  CY: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is an island in the Mediterranean", points: 1 },
+        { text: "Its capital city is Nicosia", points: 2 },
+        { text: "It has both Greek and Turkish influences", points: 3 },
+        { text: "The official languages are Greek and Turkish", points: 5 },
+        { text: "It is divided into two parts", points: 7 },
+        { text: "It is famous for its beaches and ancient ruins", points: 10 },
+        { text: "It is a member of the European Union", points: 12 },
+        { text: "The Aphrodite’s Rock is a popular attraction", points: 15 },
+        { text: "It uses the Euro as its currency", points: 18 },
+        {
+          text: "It has one of the oldest wine-making traditions in the world",
+          points: 20,
+        },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        { text: "It was once part of the British Empire", points: 1 },
+        { text: "The northern part is controlled by Turkey", points: 2 },
+        { text: "It has the last divided capital city in Europe", points: 4 },
+        { text: "It is known for the Halloumi cheese", points: 6 },
+        {
+          text: "The country’s flag features a map of its territory",
+          points: 8,
+        },
+        { text: "It was the setting for ancient Greek mythology", points: 10 },
+        { text: "It has British military bases on its territory", points: 12 },
+        { text: "The Troodos Mountains are located here", points: 15 },
+        {
+          text: "It has a UN buffer zone separating the two parts",
+          points: 18,
+        },
+        {
+          text: "The city of Paphos is a UNESCO World Heritage Site",
+          points: 20,
+        },
+      ],
+    },
+  ],
+  CZ: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in Central Europe", points: 1 },
+        { text: "Its capital city is Prague", points: 2 },
+        { text: "It was once part of Czechoslovakia", points: 3 },
+        { text: "The official language is Czech", points: 5 },
+        { text: "It is famous for its castles and medieval towns", points: 7 },
+        { text: "It is known for its beer culture", points: 10 },
+        {
+          text: "It has one of the largest castle complexes in the world",
+          points: 12,
+        },
+        { text: "The Charles Bridge is a famous landmark", points: 15 },
+        { text: "It became independent in 1993", points: 18 },
+        { text: "It is known for its thermal spa towns", points: 20 },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        { text: "The currency is the Czech koruna", points: 1 },
+        { text: "It is home to the Astronomical Clock", points: 2 },
+        { text: "Franz Kafka, a famous writer, was born here", points: 4 },
+        {
+          text: "It has a strong glass and crystal-making tradition",
+          points: 6,
+        },
+        { text: "The Velvet Revolution happened here", points: 8 },
+        {
+          text: "It is famous for Karlovy Vary, a famous spa town",
+          points: 10,
+        },
+        {
+          text: "It has a unique Christmas tradition involving carp",
+          points: 12,
+        },
+        { text: "The Bohemian Switzerland National Park is here", points: 15 },
+        { text: "It has the highest beer consumption per capita", points: 18 },
+        { text: "It is home to Český Krumlov, a fairy-tale town", points: 20 },
+      ],
+    },
+  ],
+  CD: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in Central Africa", points: 1 },
+        { text: "Its capital city is Kinshasa", points: 2 },
+        { text: "It is the second-largest country in Africa", points: 3 },
+        { text: "The official language is French", points: 5 },
+        { text: "It was formerly known as Zaire", points: 7 },
+        { text: "It is home to the Congo River", points: 10 },
+        {
+          text: "The country is rich in minerals like cobalt and diamonds",
+          points: 12,
+        },
+        { text: "It shares its name with a neighboring country", points: 15 },
+        { text: "It has the world’s second-largest rainforest", points: 18 },
+        { text: "It gained independence from Belgium in 1960", points: 20 },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        {
+          text: "The country has experienced long periods of conflict",
+          points: 1,
+        },
+        { text: "It is home to the endangered mountain gorillas", points: 2 },
+        { text: "The currency is the Congolese franc", points: 4 },
+        { text: "It has nine neighboring countries", points: 6 },
+        { text: "The Virunga National Park is located here", points: 8 },
+        { text: "It has one of the largest populations in Africa", points: 10 },
+        {
+          text: "The country has a major hydroelectric dam project",
+          points: 12,
+        },
+        { text: "The famous Inga Falls are here", points: 15 },
+        { text: "It was ruled by Mobutu Sese Seko for decades", points: 18 },
+        {
+          text: "Kinshasa is directly across the river from Brazzaville",
+          points: 20,
+        },
+      ],
+    },
+  ],
+  DK: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in Northern Europe", points: 1 },
+        { text: "Its capital city is Copenhagen", points: 2 },
+        { text: "It is part of Scandinavia", points: 3 },
+        { text: "The official language is Danish", points: 5 },
+        { text: "It is known for its Viking history", points: 7 },
+        { text: "It is home to the Little Mermaid statue", points: 10 },
+        { text: "It has a monarchy", points: 12 },
+        { text: "It is connected to Sweden by a bridge", points: 15 },
+        { text: "It is famous for LEGO", points: 18 },
+        { text: "Hans Christian Andersen was born here", points: 20 },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        { text: "It has the oldest flag in the world still in use", points: 1 },
+        { text: "The country has a high happiness index", points: 2 },
+        { text: "Greenland is a part of this kingdom", points: 4 },
+        { text: "It has a large number of islands", points: 6 },
+        { text: "The country has a strong cycling culture", points: 8 },
+        { text: "The Tivoli Gardens amusement park is here", points: 10 },
+        {
+          text: "It has a famous open-faced sandwich called Smørrebrød",
+          points: 12,
+        },
+        {
+          text: "It was once the center of a powerful Viking empire",
+          points: 15,
+        },
+        {
+          text: "It has one of the oldest amusement parks in the world",
+          points: 18,
+        },
+        { text: "The Oresund Bridge connects it to Sweden", points: 20 },
+      ],
+    },
+  ],
+  DJ: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in East Africa", points: 1 },
+        {
+          text: "Its capital city shares the same name as the country",
+          points: 2,
+        },
+        { text: "It is located on the Horn of Africa", points: 3 },
+        { text: "The official languages are French and Arabic", points: 5 },
+        { text: "It is one of the smallest countries in Africa", points: 7 },
+        { text: "It is a key port for global trade", points: 10 },
+        {
+          text: "It is home to Lake Assal, one of the saltiest lakes in the world",
+          points: 12,
+        },
+        {
+          text: "It has a strategic location at the entrance of the Red Sea",
+          points: 15,
+        },
+        { text: "It is a major hub for foreign military bases", points: 18 },
+        { text: "It gained independence from France in 1977", points: 20 },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        {
+          text: "It has volcanic landscapes and geothermal activity",
+          points: 1,
+        },
+        { text: "It has one of the lowest populations in Africa", points: 2 },
+        { text: "The currency is the Djiboutian franc", points: 4 },
+        {
+          text: "It has a strong relationship with the United States and China",
+          points: 6,
+        },
+        {
+          text: "It is a gateway for ships passing through the Suez Canal",
+          points: 8,
+        },
+        { text: "The Gulf of Aden borders this country", points: 10 },
+        { text: "It has a semi-desert climate", points: 12 },
+        { text: "It is known for its nomadic culture", points: 15 },
+        { text: "The country’s railway connects to Ethiopia", points: 18 },
+        { text: "It has one of the lowest GDPs in the world", points: 20 },
+      ],
+    },
+  ],
+  DM: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is an island in the Caribbean", points: 1 },
+        { text: "Its capital city is Roseau", points: 2 },
+        {
+          text: "It is known as the 'Nature Island of the Caribbean'",
+          points: 3,
+        },
+        { text: "It has a large number of rivers and waterfalls", points: 5 },
+        { text: "The official language is English", points: 7 },
+        {
+          text: "It is home to the world's second-largest boiling lake",
+          points: 10,
+        },
+        {
+          text: "It was colonized by both the French and the British",
+          points: 12,
+        },
+        {
+          text: "It is one of the youngest islands in the Caribbean",
+          points: 15,
+        },
+        {
+          text: "It has one of the highest populations of centenarians",
+          points: 18,
+        },
+        { text: "It gained independence from the UK in 1978", points: 20 },
+      ],
+    },
+  ],
+  DO: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is on the island of Hispaniola", points: 1 },
+        { text: "Its capital city is Santo Domingo", points: 2 },
+        { text: "It shares a border with Haiti", points: 3 },
+        { text: "The official language is Spanish", points: 5 },
+        { text: "It is famous for its beaches and resorts", points: 7 },
+        {
+          text: "It was the first European colony in the Americas",
+          points: 10,
+        },
+        { text: "Baseball is the most popular sport here", points: 12 },
+        { text: "Merengue and Bachata music originated here", points: 15 },
+        { text: "Christopher Columbus landed here in 1492", points: 18 },
+        {
+          text: "It has the tallest mountain in the Caribbean, Pico Duarte",
+          points: 20,
+        },
+      ],
+    },
+  ],
+  EC: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in South America", points: 1 },
+        { text: "Its capital city is Quito", points: 2 },
+        { text: "It is named after the equator", points: 3 },
+        { text: "The official language is Spanish", points: 5 },
+        { text: "The US dollar is its official currency", points: 7 },
+        { text: "It is home to the Galápagos Islands", points: 10 },
+        { text: "It has the highest capital city in the world", points: 12 },
+        {
+          text: "It is one of the most biodiverse countries on Earth",
+          points: 15,
+        },
+        { text: "It has the Mitad del Mundo monument", points: 18 },
+        { text: "It was once part of the Inca Empire", points: 20 },
+      ],
+    },
+  ],
+  EG: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in North Africa", points: 1 },
+        { text: "Its capital city is Cairo", points: 2 },
+        { text: "It is home to the Pyramids of Giza", points: 3 },
+        { text: "The official language is Arabic", points: 5 },
+        { text: "The Nile River runs through this country", points: 7 },
+        {
+          text: "It has one of the oldest civilizations in the world",
+          points: 10,
+        },
+        { text: "The Great Sphinx is located here", points: 12 },
+        { text: "It was ruled by Pharaohs in ancient times", points: 15 },
+        {
+          text: "It has a famous canal that connects the Mediterranean to the Red Sea",
+          points: 18,
+        },
+        { text: "The official currency is the Egyptian pound", points: 20 },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        { text: "The ancient city of Thebes was located here", points: 1 },
+        {
+          text: "It has one of the oldest universities in the world, Al-Azhar University",
+          points: 2,
+        },
+        { text: "It shares borders with Sudan, Libya, and Israel", points: 3 },
+        { text: "Alexandria was once a major center of knowledge", points: 5 },
+        {
+          text: "The Red Sea resorts are famous tourist destinations",
+          points: 7,
+        },
+        {
+          text: "It was once ruled by Ottoman and British Empires",
+          points: 10,
+        },
+        {
+          text: "The Valley of the Kings contains many Pharaoh tombs",
+          points: 12,
+        },
+        { text: "It has a large Coptic Christian population", points: 15 },
+        {
+          text: "The Aswan High Dam controls the flow of the Nile",
+          points: 18,
+        },
+        { text: "It became a republic in 1953", points: 20 },
+      ],
+    },
+    {
+      difficulty: "hard",
+      hints: [
+        {
+          text: "Hieroglyphics was the ancient writing system used here",
+          points: 1,
+        },
+        { text: "It was invaded by Napoleon in 1798", points: 2 },
+        { text: "The Rosetta Stone was discovered here", points: 3 },
+        { text: "The last queen of this country was Cleopatra", points: 5 },
+        { text: "It was called 'Kemet' in ancient times", points: 7 },
+        {
+          text: "Its Sinai Peninsula is the only part of the country in Asia",
+          points: 10,
+        },
+        { text: "King Tutankhamun’s tomb was discovered here", points: 12 },
+        {
+          text: "It was part of the Arab Spring uprisings in 2011",
+          points: 15,
+        },
+        {
+          text: "It has one of the largest metro systems in Africa",
+          points: 18,
+        },
+        { text: "The flag contains an eagle in the center", points: 20 },
+      ],
+    },
+  ],
+  SV: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in Central America", points: 1 },
+        { text: "Its capital city is San Salvador", points: 2 },
+        { text: "It is the smallest country in Central America", points: 3 },
+        { text: "The official language is Spanish", points: 5 },
+        { text: "The US dollar is its official currency", points: 7 },
+        { text: "It has many active volcanoes", points: 10 },
+        { text: "It is known for its coffee production", points: 12 },
+        { text: "Pupusas are a traditional food here", points: 15 },
+        { text: "It does not have a Caribbean coastline", points: 18 },
+        {
+          text: "It was part of the Spanish Empire before independence",
+          points: 20,
+        },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        { text: "It is bordered by Guatemala and Honduras", points: 1 },
+        { text: "Its name means 'The Savior' in Spanish", points: 2 },
+        {
+          text: "It was part of the Federal Republic of Central America",
+          points: 3,
+        },
+        { text: "It has a coastline along the Pacific Ocean", points: 5 },
+        { text: "It has no railways", points: 7 },
+        { text: "The country's currency used to be the colón", points: 10 },
+        {
+          text: "It is one of the most densely populated countries in the Americas",
+          points: 12,
+        },
+        {
+          text: "It was involved in a civil war from 1980 to 1992",
+          points: 15,
+        },
+        { text: "Bitcoin became legal tender here in 2021", points: 18 },
+        { text: "The flag has blue and white colors", points: 20 },
+      ],
+    },
+  ],
+  GQ: [
+    {
+      difficulty: "easy",
+      hints: [
+        { text: "This country is in Central Africa", points: 1 },
+        { text: "Its capital city is Malabo", points: 2 },
+        {
+          text: "It is the only African country where Spanish is an official language",
+          points: 3,
+        },
+        { text: "It has both mainland and island territories", points: 5 },
+        {
+          text: "It is one of the richest countries in Africa due to oil",
+          points: 7,
+        },
+        { text: "Bata is its largest city", points: 10 },
+        { text: "It was colonized by Spain", points: 12 },
+        { text: "Bioko Island is part of this country", points: 15 },
+        {
+          text: "It has one of the smallest populations in Africa",
+          points: 18,
+        },
+        { text: "It gained independence in 1968", points: 20 },
+      ],
+    },
+    {
+      difficulty: "medium",
+      hints: [
+        {
+          text: "It has three official languages: Spanish, French, and Portuguese",
+          points: 1,
+        },
+        {
+          text: "It is the only African country where Spanish is the main language",
+          points: 2,
+        },
+        {
+          text: "It consists of the mainland (Río Muni) and islands",
+          points: 3,
+        },
+        { text: "The capital, Malabo, is located on an island", points: 5 },
+        {
+          text: "It has one of the highest GDPs per capita in Africa",
+          points: 7,
+        },
+        { text: "Its economy relies heavily on petroleum exports", points: 10 },
+        { text: "It has a tropical climate", points: 12 },
+        { text: "Its flag has blue, white, green, and red colors", points: 15 },
+        {
+          text: "It has a small population of about 1.5 million people",
+          points: 18,
+        },
+        {
+          text: "The current president has been in power since 1979",
+          points: 20,
+        },
+      ],
+    },
+  ],
   FR: [
     {
       difficulty: "easy",
