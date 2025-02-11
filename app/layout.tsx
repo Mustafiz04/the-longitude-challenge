@@ -2,12 +2,15 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '@/styles/map.css'
+import { cn } from "@/lib/utils"
+import { Header } from "@/components/layout/Header"
+import { Footer } from "@/components/layout/Footer"
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'The Longitude Challenge',
-  description: 'Test your geography knowledge with coordinates!',
+  title: 'GeoQuiz - Learn Geography',
+  description: 'Test your knowledge of world geography with GeoQuiz',
   icons: {
     icon: '/favicon.ico',
   },
@@ -19,8 +22,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="h-full">
+      <body className={cn(inter.className, "min-h-full flex flex-col")}>
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   )
 }

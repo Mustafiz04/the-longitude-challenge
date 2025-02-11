@@ -1,124 +1,62 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
-import { Globe, MapPin, Trophy, Brain } from 'lucide-react'
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Hero Section */}
-      <main className="flex-1 container max-w-6xl mx-auto px-4 py-16 flex flex-col items-center justify-center gap-8 text-center">
-        <div className="space-y-4">
-          <div className="relative inline-block">
-            <Globe className="w-16 h-16 mx-auto mb-4 text-primary animate-pulse" />
-            <div className="absolute -top-2 -right-2">
-              <MapPin className="w-6 h-6 text-red-500" />
+    <div className="flex-1">
+      <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
+        <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
+          <h1 className="font-bold text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
+            Explore the World with GeoQuiz
+          </h1>
+          <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
+            Test your geography knowledge, learn about countries, and challenge yourself with our interactive quizzes
+          </p>
+          <div className="space-x-4">
+            <Button asChild size="lg">
+              <Link href="/play">Start Playing</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link href="/countries">Explore Countries</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="container space-y-6 py-8 md:py-12 lg:py-24">
+        <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
+          <div className="relative overflow-hidden rounded-lg border bg-background p-2">
+            <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
+              <div className="space-y-2">
+                <h3 className="font-bold">🎮 Interactive Games</h3>
+                <p className="text-sm text-muted-foreground">
+                  Challenge yourself with various geography quizzes and games
+                </p>
+              </div>
             </div>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            The Longitude Challenge
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-[42rem] mx-auto">
-            Test your geography knowledge with an engaging coordinate-guessing game. How well do you know your world?
-          </p>
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Link href="/play">
-            <Button size="lg" className="text-lg px-8">
-              Play Now
-            </Button>
-          </Link>
-          <Button variant="outline" size="lg" className="text-lg px-8">
-            How to Play
-          </Button>
-        </div>
-
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-          <Card className="bg-card/50 backdrop-blur-sm">
-            <CardContent className="pt-6">
-              <div className="flex flex-col items-center gap-2 text-center">
-                <MapPin className="w-8 h-8 text-primary" />
-                <h3 className="font-semibold text-lg">Precise Coordinates</h3>
+          <div className="relative overflow-hidden rounded-lg border bg-background p-2">
+            <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
+              <div className="space-y-2">
+                <h3 className="font-bold">🗺️ Country Explorer</h3>
                 <p className="text-sm text-muted-foreground">
-                  Place markers on exact coordinates and test your geographic precision
+                  Learn about countries, their flags, capitals, and more
                 </p>
               </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-card/50 backdrop-blur-sm">
-            <CardContent className="pt-6">
-              <div className="flex flex-col items-center gap-2 text-center">
-                <Brain className="w-8 h-8 text-primary" />
-                <h3 className="font-semibold text-lg">Strategic Hints</h3>
+            </div>
+          </div>
+          <div className="relative overflow-hidden rounded-lg border bg-background p-2">
+            <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
+              <div className="space-y-2">
+                <h3 className="font-bold">📊 Track Progress</h3>
                 <p className="text-sm text-muted-foreground">
-                  Use helpful hints about continents, countries, and landmarks
+                  Monitor your learning journey and improve your geography knowledge
                 </p>
               </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-card/50 backdrop-blur-sm">
-            <CardContent className="pt-6">
-              <div className="flex flex-col items-center gap-2 text-center">
-                <Trophy className="w-8 h-8 text-primary" />
-                <h3 className="font-semibold text-lg">Score Points</h3>
-                <p className="text-sm text-muted-foreground">
-                  Earn points based on the accuracy of your guesses
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-          <Link
-            href="/play"
-            className="p-6 border rounded-lg hover:border-blue-500 transition-colors"
-          >
-            <h2 className="text-xl font-bold">Classic Mode →</h2>
-            <p>Test your geography skills with 10 rounds of coordinate guessing.</p>
-          </Link>
-          
-          <Link
-            href="/time-attack"
-            className="p-6 border rounded-lg hover:border-blue-500 transition-colors"
-          >
-            <h2 className="text-xl font-bold">Time Attack →</h2>
-            <p>Race against time! Guess as many locations as possible in 2 minutes.</p>
-          </Link>
-
-          <Link
-            href="/culture-quest"
-            className="p-6 border rounded-lg hover:border-blue-500 transition-colors"
-          >
-            <h2 className="text-xl font-bold">Culture Quest →</h2>
-            <p>Test your knowledge of global culture and history.</p>
-          </Link>
-        </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="border-t py-6 md:py-0">
-        <div className="container flex flex-col md:flex-row items-center justify-between gap-4 text-center md:h-16">
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} The Longitude Challenge. All rights reserved.
-          </p>
-          <nav className="flex gap-4 text-sm text-muted-foreground">
-            <Link href="/about" className="hover:text-foreground transition-colors">
-              About
-            </Link>
-            <Link href="/privacy" className="hover:text-foreground transition-colors">
-              Privacy
-            </Link>
-            <Link href="/terms" className="hover:text-foreground transition-colors">
-              Terms
-            </Link>
-          </nav>
-        </div>
-      </footer>
+      </section>
     </div>
   )
 }

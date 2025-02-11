@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import GameHeader from "../layout/GameHeader";
+// import GameHeader from "../layout/GameHeader";
 import { Country } from "@/types/country";
 import { getRandomCountry } from "@/utils/countries";
 import { Input } from "@/components/ui/input";
@@ -120,7 +120,7 @@ export default function CultureQuestGame() {
 
   return (
     <div className="w-full max-w-3xl mx-auto px-4">
-      <GameHeader title="Culture Quest" />
+      {/* <GameHeader title="Culture Quest" /> */}
 
       <Card className="mt-8 p-6">
         <div className="flex justify-between items-center mb-6">

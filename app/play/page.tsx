@@ -16,7 +16,7 @@ import { Separator } from "@/components/ui/separator";
 import { MapPin, HelpCircle } from "lucide-react";
 import { Hint } from "@/utils/coordinates";
 // import GameMap from "@/components/map/GameMap";
-import GameHeader from "@/components/layout/GameHeader";
+// import GameHeader from "@/components/layout/GameHeader";
 
 const GameMap = dynamic(() => import("@/components/map/GameMap"), {
   ssr: false,
@@ -97,7 +97,7 @@ export default function PlayPage() {
 
   return (
     <main className="space-y-4">
-      <GameHeader title="The Longitude Challenge" />
+      {/* <GameHeader title="The Longitude Challenge" /> */}
       
       <div className="container mx-auto p-4 space-y-4 max-w-6xl">
         <div className="flex justify-end">

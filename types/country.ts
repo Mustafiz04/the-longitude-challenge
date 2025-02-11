@@ -10,4 +10,16 @@ export interface Country {
   famousPersonalities: string[]
   traditions: string[]
   continent: string
+  region?: string
+  subregion?: string
+  population?: number
+  area?: number
+  languages?: string[]
+  landlocked?: boolean
+  currency?: {
+    code: string
+    name: string
+    symbol: string
+  }
+  borders?: string[]
 } 
