@@ -140,7 +140,7 @@ export default function LeafletMap({
   return (
     <div 
       ref={containerRef}
-      className="w-full h-[400px] rounded-lg border overflow-hidden"
+      className="w-full h-[400px] rounded-lg border overflow-hidden z-0"
     />
   );
 } 

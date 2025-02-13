@@ -18,6 +18,7 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "Play", href: "/play" },
   { name: "Culture Quest", href: "/culture-quest" },
+  { name: "Daily Challenge", href: "/daily-challenge" },
   { name: "Countries", href: "/countries" },
 ]
 
