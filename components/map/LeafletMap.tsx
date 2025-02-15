@@ -17,17 +17,17 @@ L.Icon.Default.mergeOptions({
 });
 
 interface LeafletMapProps {
-  selectedCountry: string | null;
   correctCountry: string | null;
   onSelectCountry: (countryName: string) => void;
   isGameOver: boolean;
+  guessedCountries: { [key: string]: boolean };
 }
 
 export default function LeafletMap({
-  selectedCountry,
   correctCountry,
   onSelectCountry,
   isGameOver,
+  guessedCountries,
 }: LeafletMapProps) {
   const mapRef = useRef<L.Map | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -53,12 +53,19 @@ export default function LeafletMap({
     const map = mapRef.current;
     if (!map) return;
 
-    let isMounted = true;  // Add mount check flag
+    let isMounted = true;
+
+    const getCountryColor = (countryName: string | undefined) => {
+      if (!countryName) return '#CCCCCC';
+      if (guessedCountries[countryName]) return '#FF5252';
+      if (countryName === correctCountry) return '#4CAF50';
+      return '#CCCCCC';
+    };
 
     fetch('/world-countries.json')
       .then(response => response.json())
       .then(data => {
-        if (!isMounted) return;  // Check if still mounted
+        if (!isMounted) return;
 
         if (geoJsonLayerRef.current) {
           geoJsonLayerRef.current.remove();
@@ -104,7 +111,7 @@ export default function LeafletMap({
           }
         });
 
-        if (isMounted && map) {  // Check both mount status and map existence
+        if (isMounted && map) {
           geoJsonLayer.addTo(map);
           geoJsonLayerRef.current = geoJsonLayer;
         }
@@ -116,26 +123,13 @@ export default function LeafletMap({
       });
 
     return () => {
-      isMounted = false;  // Clean up mount flag
+      isMounted = false;
       if (geoJsonLayerRef.current) {
         geoJsonLayerRef.current.remove();
         geoJsonLayerRef.current = null;
       }
     };
-  }, [isGameOver, onSelectCountry]);
-
-  const getCountryColor = (countryName: string | undefined) => {
-    if (!countryName) return '#CCCCCC';
-    
-    if (correctCountry) {
-      if (countryName === correctCountry) return '#4CAF50';
-      if (countryName === selectedCountry) return '#F44336';
-      return '#CCCCCC';
-    }
-    
-    if (countryName === selectedCountry) return '#2196F3';
-    return '#CCCCCC';
-  };
+  }, [isGameOver, onSelectCountry, guessedCountries, correctCountry]);
 
   return (
     <div 

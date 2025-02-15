@@ -4,10 +4,10 @@ import { useState, useEffect, useMemo } from "react";
 import { Country } from "@/types/country";
 import CountrySearch from "@/components/CountrySearch";
 import WorldMap from "@/components/map/WorldMap";
-import { countryHints } from "@/constants/countryHints";
 import { getRandomCountry } from "@/utils/countries";
 import { countries } from "@/constants/countries";
 import { motion } from "framer-motion";
+import { getCountryHintSequences } from "@/utils/countryHints";
 
 interface GameState {
   isStarted: boolean;
@@ -33,6 +33,7 @@ interface GameHistory {
   isCorrect: boolean;
   hints: string[];
   date: string;
+  guessedCountries: { [key: string]: boolean };
 }
 
 interface GuessHistory {
@@ -45,7 +46,7 @@ export default function DailyChallengeGame() {
   const [canPlay, setCanPlay] = useState(true);
   const [gameState, setGameState] = useState<GameState>({
     isStarted: false,
-    hintsRemaining: 9,
+    hintsRemaining: 10,
     startTime: null,
     isGameOver: false,
     currentHintIndex: 0,
@@ -54,6 +55,7 @@ export default function DailyChallengeGame() {
   });
 
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  const [guessedCountries, setGuessedCountries] = useState({});
   const [displayTime, setDisplayTime] = useState("0:00");
 
   const [stats, setStats] = useState<GameStats>({
@@ -73,10 +75,10 @@ export default function DailyChallengeGame() {
   const newCountry = getRandomCountry();
   const dailyCountry = useMemo(() => newCountry, []); // TODO: Implement daily selection
   const countryHintList = useMemo(() => {
-    const hintSequence = countryHints[dailyCountry.code]?.find(
-      (sequence) => sequence.difficulty === "easy"
-    );
-    return hintSequence?.hints || [];
+    const hintSequences = getCountryHintSequences(dailyCountry);
+    const randomSequence =
+      hintSequences[Math.floor(Math.random() * hintSequences.length)];
+    return randomSequence.hints;
   }, [dailyCountry]);
 
   // Check if the user can play
@@ -173,7 +175,7 @@ export default function DailyChallengeGame() {
     setSelectedCountry(currentCountry.name);
 
     // Calculate hintsUsed at the beginning
-    const hintsUsed = 10 - gameState.hintsRemaining;
+    const hintsUsed = 10 - gameState.hintsRemaining - 1;
 
     // Track the guess
     const newGuessHistory = [
@@ -187,7 +189,10 @@ export default function DailyChallengeGame() {
     setGuessHistory(newGuessHistory);
 
     if (isCorrect) {
-      const earnedPoints = calculatePoints(Date.now() - (gameState.startTime || Date.now()), hintsUsed);
+      const earnedPoints = calculatePoints(
+        Date.now() - (gameState.startTime || Date.now()),
+        hintsUsed
+      );
       setPoints(earnedPoints);
 
       const newStats = {
@@ -212,6 +217,7 @@ export default function DailyChallengeGame() {
           .slice(0, gameState.currentHintIndex + 1)
           .map((h) => h.text),
         date: new Date().toISOString().split("T")[0],
+        guessedCountries: guessedCountries,
       };
       localStorage.setItem("dailyChallengeHistory", JSON.stringify(history));
       localStorage.setItem(
@@ -229,18 +235,23 @@ export default function DailyChallengeGame() {
       setShowStatsPopup(true);
     } else {
       // Always show next hint when guess is incorrect and hints are available
-      if (gameState.currentHintIndex < countryHintList.length - 1) {
+      setGuessedCountries((prev) => ({ ...prev, [currentCountry.name]: true }));
+      if (gameState.currentHintIndex < countryHintList.length) {
         setGameState((prev) => ({
           ...prev,
           hintsRemaining: prev.hintsRemaining - 1,
           currentHintIndex: prev.currentHintIndex + 1,
+          isCorrect: false,
           isGameOver: prev.hintsRemaining <= 1,
           isCorrectGuess: false,
         }));
 
         // Show popup if this was the last hint
         if (gameState.hintsRemaining <= 1) {
-          const earnedPoints = calculatePoints(Date.now() - (gameState.startTime || Date.now()), 10);
+          const earnedPoints = calculatePoints(
+            Date.now() - (gameState.startTime || Date.now()),
+            10
+          );
           setPoints(earnedPoints);
 
           const newStats = {
@@ -262,9 +273,13 @@ export default function DailyChallengeGame() {
             hintsUsed: 10,
             isCorrect: false,
             hints: countryHintList
-              .slice(0, gameState.currentHintIndex + 1)
+              .slice(0, gameState.currentHintIndex+1)
               .map((h) => h.text),
             date: new Date().toISOString().split("T")[0],
+            guessedCountries: {
+              ...guessedCountries,
+              [currentCountry.name]: true
+            },
           };
           localStorage.setItem(
             "dailyChallengeHistory",
@@ -283,6 +298,7 @@ export default function DailyChallengeGame() {
           ...prev,
           hintsRemaining: 0,
           isGameOver: true,
+          isCorrect: false,
           isCorrectGuess: false,
         }));
         setShowStatsPopup(true);
@@ -300,10 +316,10 @@ export default function DailyChallengeGame() {
   const worldMap = useMemo(
     () => (
       <WorldMap
-        selectedCountry={selectedCountry}
         correctCountry={gameState.isGameOver ? dailyCountry.name : null} // Use name instead of code
         onSelectCountry={handleMapClick}
         isGameOver={gameState.isGameOver}
+        guessedCountries={guessedCountries}
       />
     ),
     [selectedCountry, gameState.isGameOver, dailyCountry]
@@ -322,11 +338,20 @@ export default function DailyChallengeGame() {
           ✕
         </button>
 
-        <h2 className="text-5xl font-bold text-center mb-6">Good Job!</h2>
+        <h2 className="text-5xl font-bold text-center mb-6">
+          {gameState.isCorrectGuess ? "Good Job!" : "Game Over!"}
+        </h2>
 
         <p className="text-xl text-center text-gray-300 mb-8">
-          You found {dailyCountry.name} in {displayTime}, using{" "}
-          {10 - gameState.hintsRemaining} hints!
+          {gameState.isCorrectGuess ? (
+            `You found ${dailyCountry.name} in ${displayTime}, using ${
+              10 - gameState.hintsRemaining
+            } hints!`
+          ) : (
+            <>
+              The correct country was <span className="font-bold">{dailyCountry.name}</span>
+            </>
+          )}
         </p>
 
         <div className="grid grid-cols-4 gap-4 mb-8">
@@ -362,14 +387,8 @@ export default function DailyChallengeGame() {
                 className="flex items-center justify-between text-gray-300"
               >
                 <span>{guess.country}</span>
-                <span className="flex gap-1">
-                  {Array(guess.hints)
-                    .fill("✓")
-                    .map((mark, i) => (
-                      <span key={i} className="text-emerald-500">
-                        {mark}
-                      </span>
-                    ))}
+                <span className={guess.isCorrect ? "text-emerald-500" : "text-red-500"}>
+                  {guess.isCorrect ? "✓" : "✗"}
                 </span>
               </div>
             ))}
@@ -403,10 +422,10 @@ export default function DailyChallengeGame() {
 
         <div className="w-full h-[400px] rounded-lg overflow-hidden cursor-pointer shadow-md">
           <WorldMap
-            selectedCountry={gameHistory?.country || null}
             correctCountry={gameHistory?.country || null}
             onSelectCountry={() => {}}
             isGameOver={true}
+            guessedCountries={gameHistory?.guessedCountries || {}}
           />
         </div>
 
@@ -415,8 +434,16 @@ export default function DailyChallengeGame() {
             {gameHistory?.isCorrect ? "Good Job!" : "Game Over!"}
           </h2>
           <h1>
-            You found {gameHistory?.country} in {gameHistory?.time}, using{" "}
-            {gameHistory?.hintsUsed} hints!
+            {gameHistory?.isCorrect ? (
+              <p>
+                You found {gameHistory?.country} in {gameHistory?.time}, using{" "}
+                {gameHistory?.hintsUsed} hints!
+              </p>
+            ) : (
+              <p>
+                Correct answer is <strong>{gameHistory?.country}</strong>
+              </p>
+            )}
           </h1>
 
           <div className="grid grid-cols-4 gap-8 text-center my-4">

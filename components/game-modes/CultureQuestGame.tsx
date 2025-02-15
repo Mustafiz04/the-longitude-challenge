@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Trophy, AlertCircle, Heart, ArrowRight } from "lucide-react";
-import { getCountryHintSequences } from '@/utils/countryHints';
+import { getCountryHintSequences } from "@/utils/countryHints";
 import dynamic from "next/dynamic";
 // import WorldMap from "../map/WorldMap";
 
@@ -16,7 +16,6 @@ const WorldMap = dynamic(() => import("../map/WorldMap"), {
   ssr: false,
   loading: () => <p>Loading...</p>,
 });
-
 
 interface Hint {
   text: string;
@@ -40,8 +39,9 @@ export default function CultureQuestGame() {
     text: string;
     type: "success" | "error" | "info";
   } | null>(null);
-  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
-
+  const [guessedCountries, setGuessedCountries] = useState<{
+    [key: string]: boolean;
+  }>({});
   const startNewGame = useCallback(() => {
     const newCountry = getRandomCountry();
     setCountry(newCountry);
@@ -52,7 +52,7 @@ export default function CultureQuestGame() {
     setLives(3);
     setGuess("");
     setMessage(null);
-    setSelectedCountry(null);
+    setGuessedCountries({});
   }, []);
 
   useEffect(() => {
@@ -61,7 +61,8 @@ export default function CultureQuestGame() {
 
   const generateHints = (country: Country): Hint[] => {
     const hintSequences = getCountryHintSequences(country);
-    const randomSequence = hintSequences[Math.floor(Math.random() * hintSequences.length)];
+    const randomSequence =
+      hintSequences[Math.floor(Math.random() * hintSequences.length)];
     return randomSequence.hints;
   };
 
@@ -78,8 +79,6 @@ export default function CultureQuestGame() {
   };
 
   const checkAnswer = (countryName: string) => {
-    setSelectedCountry(countryName);
-    
     const isCorrect = countryName.toLowerCase() === country?.name.toLowerCase();
 
     if (isCorrect) {
@@ -91,6 +90,7 @@ export default function CultureQuestGame() {
     } else {
       const newLives = lives - 1;
       setLives(newLives);
+      setGuessedCountries((prev) => ({ ...prev, [countryName]: true }));
 
       if (newLives <= 0) {
         setGameOver(true);
@@ -136,10 +136,10 @@ export default function CultureQuestGame() {
 
         <div className="space-y-4">
           <WorldMap
-            selectedCountry={selectedCountry}
             correctCountry={gameOver ? country?.name || null : null}
             onSelectCountry={handleCountrySelect}
             isGameOver={gameOver}
+            guessedCountries={guessedCountries}
           />
 
           <div className="bg-gray-50 rounded-lg p-4">

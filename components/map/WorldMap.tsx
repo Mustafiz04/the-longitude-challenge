@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from 'next/dynamic';
-
 // Dynamically import Leaflet with no SSR
 const LeafletMap = dynamic(
   () => import('./LeafletMap'),
@@ -16,10 +15,10 @@ const LeafletMap = dynamic(
 );
 
 interface WorldMapProps {
-  selectedCountry: string | null;
   correctCountry: string | null;
   onSelectCountry: (countryName: string) => void;
   isGameOver: boolean;
+  guessedCountries: { [key: string]: boolean };
 }
 
 export default function WorldMap(props: WorldMapProps) {
